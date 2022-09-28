@@ -2,6 +2,7 @@
 version: '2'
 services:
   zookeeper:
+    platform: linux/x86_64
     image: confluentinc/cp-zookeeper:7.1.0
     ports:
       - 2181:2181
@@ -28,6 +29,7 @@ services:
     # See https://rmoff.net/2018/08/02/kafka-listeners-explained/ for details
     # "`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-'"`-._,-
     #
+    platform: linux/x86_64
     image: confluentinc/cp-kafka:7.1.0
     depends_on:
       - zookeeper
@@ -43,6 +45,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
 
   schema-registry:
+    platform: linux/x86_64
     image: confluentinc/cp-schema-registry:7.1.0
     depends_on:
       - zookeeper
